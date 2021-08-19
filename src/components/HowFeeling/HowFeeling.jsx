@@ -12,7 +12,7 @@ function HowFeeling() {
   const dispatch = useDispatch();
 
   let [productToAdd, setProductToAdd] = useState({ name: '', feeling: 0, understand: 0 });
-
+  console.log(productToAdd);
   const handleFeedBackNumChange = (event) => {
     setProductToAdd({      
         ...productToAdd,

@@ -17,7 +17,7 @@ function UnderStanding() {
 
   const handleFeedBackNumChange = (event) => {
     setProductToAdd({      
-        ...feedback,
+        ...feedback[0],
         understand: event.target.value,      
     });
   }
