@@ -10,7 +10,7 @@ import { combineReducers, createStore } from 'redux';
 const feedBack = (state = [], action) => {
   switch(action.type) {
       case ('ADD_FEEDBACK'):
-          console.log('Add Pizza')
+          console.log('Add Pizza', action.payload.feeling)
           return [...state, action.payload];
       case ('REMOVE_PIZZA'):
           console.log('Removed Pizza')

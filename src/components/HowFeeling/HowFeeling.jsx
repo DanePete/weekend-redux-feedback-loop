@@ -11,6 +11,15 @@ function HowFeeling() {
   const history = useHistory();
   const dispatch = useDispatch();
 
+  let [productToAdd, setProductToAdd] = useState({ name: '', feeling: 0 });
+
+  const handleFeedBackNumChange = (event) => {
+    setProductToAdd({      
+        ...productToAdd,
+        feeling: event.target.value,      
+    });
+  }
+
   const goToCustInformation = () => {
     let isConfirmed = confirm("Are you sure this is how you feel?")
 
@@ -26,12 +35,12 @@ function HowFeeling() {
     console.log('your button was clicked 🦙', event);
 
     // Dispatch an action
-    // dispatch({
-    //   // Our "type" is the message
-    //   // that we want to tell the world about
-    //   type: 'ADD_NEW_PRODUCT',
-    //   payload: productToAdd
-    // });
+    dispatch({
+      // Our "type" is the message
+      // that we want to tell the world about
+      type: 'ADD_FEEDBACK',
+      payload: productToAdd
+    });
   }
 
   return (
@@ -39,8 +48,8 @@ function HowFeeling() {
       <h1>How are you feeling today?</h1>
       <form onSubmit={(event) => addFeedback(event)}>
         <input
-          // onChange={handlePriceChange}
-          // value= {productToAdd.price}
+          onChange={handleFeedBackNumChange}
+          value= {productToAdd.feeling}
           type='number'
           placeholder='Feeling?'
         />
