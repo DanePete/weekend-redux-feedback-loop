@@ -13,11 +13,11 @@ function UnderStanding() {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  let [productToAdd, setProductToAdd] = useState({ name: '', feeling: feedback[0].feeling, understand: 0 });
+  let [productToAdd, setProductToAdd] = useState({ name: '', feeling: 0, understand: 0 });
 
   const handleFeedBackNumChange = (event) => {
     setProductToAdd({      
-        ...productToAdd,
+        ...feedback,
         understand: event.target.value,      
     });
   }
