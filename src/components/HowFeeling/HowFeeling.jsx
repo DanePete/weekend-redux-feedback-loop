@@ -11,7 +11,7 @@ function HowFeeling() {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  let [productToAdd, setProductToAdd] = useState({ name: '', feeling: 0 });
+  let [productToAdd, setProductToAdd] = useState({ name: '', feeling: 0, understand: 0 });
 
   const handleFeedBackNumChange = (event) => {
     setProductToAdd({      
@@ -41,6 +41,8 @@ function HowFeeling() {
       type: 'ADD_FEEDBACK',
       payload: productToAdd
     });
+
+    history.push('/understanding');
   }
 
   return (
