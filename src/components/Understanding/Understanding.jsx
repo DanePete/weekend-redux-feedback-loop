@@ -7,7 +7,7 @@ import {useDispatch, useSelector} from 'react-redux';
 
 function UnderStanding() {
 
-  const feedback = useSelector(store => store.feedBack);
+  // const feedback = useSelector(store => store.feedBack);
   const history = useHistory();
   const dispatch = useDispatch();
 

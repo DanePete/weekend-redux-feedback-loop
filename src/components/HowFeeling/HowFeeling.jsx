@@ -7,23 +7,11 @@ import {useDispatch, useSelector} from 'react-redux';
 function HowFeeling() {
   const history = useHistory();
   const dispatch = useDispatch();
-  let [productToAdd, setProductToAdd] = useState({ name: '', feeling: 0, understand: 0, supported: 0 });
-  const feedback = useSelector(store => store.feedBack);
 
-  const handleFeedBackNumChange = (event) => {
-    setProductToAdd({      
-        ...feedback,
-        feeling: event.target.value,      
-    });
-  }
+  let [howFeeling, setHowFeeling] = useState('');
 
-  const goToCustInformation = () => {
-    let isConfirmed = confirm("Are you sure this is how you feel?")
-
-    
-    if (isConfirmed) {
-      history.push('/customer-information');
-    }
+  const handleHowFeeling = (event) => {
+    setHowFeeling(event.target.value);
   }
 
   const addFeedback = (event) => {
@@ -31,8 +19,8 @@ function HowFeeling() {
     
     // Dispatch an action
     dispatch({
-      type: 'ADD_FEEDBACK',
-      payload: productToAdd
+      type: 'HOW_FEELING',
+      payload: howFeeling
     });
 
     history.push('/understanding');
@@ -43,8 +31,8 @@ function HowFeeling() {
       <h1>How are you feeling today?</h1>
       <form onSubmit={(event) => addFeedback(event)}>
         <input
-          onChange={handleFeedBackNumChange}
-          value= {productToAdd.feeling}
+          onChange={handleHowFeeling}
+          value= {howFeeling}
           type='number'
           placeholder='Feeling?'
         />

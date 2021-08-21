@@ -7,34 +7,22 @@ import {useDispatch, useSelector} from 'react-redux';
 
 function Supported() {
 
-  const feedback = useSelector(store => store.feedBack);
+  // const feedback = useSelector(store => store.feedBack);
   // allows us to access a history variable
   const history = useHistory();
   const dispatch = useDispatch();
 
-  let [productToAdd, setProductToAdd] = useState({ name: '', feeling: 0, understand: 0, supported: 0 });
-    console.log('feedback', feedback);
-  const handleFeedBackNumChange = (event) => {
-    setProductToAdd({      
-        ...feedback[feedback.length -1],
-        supported: event.target.value,      
-    });
-  }
+  let [supported, setSupported] = useState('');
 
-  const goToCustInformation = () => {
-    let isConfirmed = confirm("Are you sure this is how you feel?")
-
-    
-    if (isConfirmed) {
-      
-    }
+  const handleSupported = (event) => {
+    setSupported(event.target.value);
   }
 
   const addFeedback = (event) => {
     event.preventDefault();
     dispatch({
-      type: 'ADD_FEEDBACK',
-      payload: productToAdd
+      type: 'SUPPORTED',
+      payload: supported
     });
     history.push('/review');
   }
@@ -44,8 +32,8 @@ function Supported() {
       <h1>How well are you being supported</h1>
       <form onSubmit={(event) => addFeedback(event)}>
         <input
-          onChange={handleFeedBackNumChange}
-          value= {productToAdd.supported}
+          onChange={handleSupported}
+          value= {supported}
           type='number'
           placeholder='Feeling?'
         />
