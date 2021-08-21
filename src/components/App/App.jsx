@@ -3,6 +3,8 @@ import axios from 'axios';
 import './App.css';
 import HowFeeling from '../HowFeeling/HowFeeling';
 import UnderStanding from '../Understanding/Understanding';
+import Review from '../Review/Review';
+import Supported from '../Supported/Supported';
 import { useEffect } from 'react';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 
@@ -25,12 +27,12 @@ function App() {
         <UnderStanding />
       </Route>
 
-      <Route path="/checkout" exact>
-        { /* CREATE COMPONENT checkout */}
+      <Route path="/review" exact>
+        <Review />
       </Route>
 
-      <Route path="/admin" exact>
-        { /* CREATE COMPONENT ADMIN */}
+      <Route path="/supported" exact>
+        <Supported />
       </Route>
 
       </Router> 

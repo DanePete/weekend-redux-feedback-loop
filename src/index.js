@@ -7,30 +7,43 @@ import { Provider } from 'react-redux';
 import { combineReducers, createStore } from 'redux';
 
 // HOW FEELING REDUCER
-const feedBack = (state = [], action) => {
-  switch(action.type) {
-      case ('ADD_FEEDBACK'):
-          console.log('Add Pizza', action.payload.understand)
-          return [...state, action.payload];
-      case ('REMOVE_PIZZA'):
-          console.log('Removed Pizza')
-          // need specific info about which pizza to delete
-          // this will only work for the basic project
-          let newState = [];
-          for (let pizza of state) {
-              if (pizza.name != action.payload.name) {
-                  newState.push(pizza);
-              }
-          }
-          return newState;
+const howFeeling = (state = 0, action) => {
+    if(action.type ==="HOW_FEELING") {
+        return action.payload;
+    }
+    return state;
+}
 
-  }
-  return state;
-};
+// UNDERSTANDING REDUCER
+const understanding = (state = 0, action) => {
+    if(action.type ==="UNDERSTANDING") {
+        return action.payload;
+    }
+    return state;
+}
+
+// SUPPORTED REDUCER
+const supported = (state = 0, action) => {
+    if(action.type ==="SUPPORTED") {
+        return action.payload;
+    }
+    return state;
+}
+
+// COMMENTS REDUCER
+const comments = (state = [], action) => {
+    if(action.type ==="COMMENTS") {
+        return action.payload;
+    }
+    return state;
+}
 
 const store = createStore(
   combineReducers({
-      feedBack
+    howFeeling,
+    understanding,
+    supported,
+    comments
   })
 );
 

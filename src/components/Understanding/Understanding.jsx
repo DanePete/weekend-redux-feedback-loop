@@ -8,41 +8,22 @@ import {useDispatch, useSelector} from 'react-redux';
 function UnderStanding() {
 
   const feedback = useSelector(store => store.feedBack);
-  console.log('feedback', feedback[0].feeling);
-  // allows us to access a history variable
   const history = useHistory();
   const dispatch = useDispatch();
 
-  let [productToAdd, setProductToAdd] = useState({ name: '', feeling: 0, understand: 0 });
+  let [understand, setUnderstanding] = useState('');
 
-  const handleFeedBackNumChange = (event) => {
-    setProductToAdd({      
-        ...feedback[0],
-        understand: event.target.value,      
-    });
-  }
-
-  const goToCustInformation = () => {
-    let isConfirmed = confirm("Are you sure this is how you feel?")
-
-    
-    if (isConfirmed) {
-      history.push('/customer-information');
-    }
+  const handleUnderstanding = (event) => {
+    setUnderstanding(event.target.value);
   }
 
   const addFeedback = (event) => {
     event.preventDefault();
-    
-    console.log('your button was clicked 🦙', event);
-    console.log('product to add', productToAdd);
-    // Dispatch an action
     dispatch({
-      // Our "type" is the message
-      // that we want to tell the world about
-      type: 'ADD_FEEDBACK',
-      payload: productToAdd
+      type: 'UNDERSTANDING',
+      payload: understand
     });
+    history.push('/supported');
   }
 
   return (
@@ -50,23 +31,14 @@ function UnderStanding() {
       <h1>How Well are you understanding the content?</h1>
       <form onSubmit={(event) => addFeedback(event)}>
         <input
-          onChange={handleFeedBackNumChange}
-          value= {productToAdd.understand}
+          onChange={handleUnderstanding}
+          value= {understand}
           type='number'
           placeholder='Feeling?'
         />
         
         <input type='submit' value='Submit' />
       </form>
-
-      {/* {list.map((pizza, i) => {
-        return <IndividualPizza 
-        key={i} 
-        id={i}
-        pizza={pizza}  
-      />
-      })}
-    <button onClick={goToCustInformation}>NEXT</button> */}
     </div>
   )
 }

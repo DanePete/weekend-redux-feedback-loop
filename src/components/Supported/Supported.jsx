@@ -1,19 +1,23 @@
 // TODO
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import axios from "axios";
 import { useState } from "react";
 import {useDispatch, useSelector} from 'react-redux';
 
-function HowFeeling() {
+function Supported() {
+
+  const feedback = useSelector(store => store.feedBack);
+  // allows us to access a history variable
   const history = useHistory();
   const dispatch = useDispatch();
-  let [productToAdd, setProductToAdd] = useState({ name: '', feeling: 0, understand: 0, supported: 0 });
-  const feedback = useSelector(store => store.feedBack);
 
+  let [productToAdd, setProductToAdd] = useState({ name: '', feeling: 0, understand: 0, supported: 0 });
+    console.log('feedback', feedback);
   const handleFeedBackNumChange = (event) => {
     setProductToAdd({      
-        ...feedback,
-        feeling: event.target.value,      
+        ...feedback[feedback.length -1],
+        supported: event.target.value,      
     });
   }
 
@@ -22,29 +26,26 @@ function HowFeeling() {
 
     
     if (isConfirmed) {
-      history.push('/customer-information');
+      
     }
   }
 
   const addFeedback = (event) => {
     event.preventDefault();
-    
-    // Dispatch an action
     dispatch({
       type: 'ADD_FEEDBACK',
       payload: productToAdd
     });
-
-    history.push('/understanding');
+    history.push('/review');
   }
 
   return (
     <div className="PizzaContainer">
-      <h1>How are you feeling today?</h1>
+      <h1>How well are you being supported</h1>
       <form onSubmit={(event) => addFeedback(event)}>
         <input
           onChange={handleFeedBackNumChange}
-          value= {productToAdd.feeling}
+          value= {productToAdd.supported}
           type='number'
           placeholder='Feeling?'
         />
@@ -55,4 +56,4 @@ function HowFeeling() {
   )
 }
 
-export default HowFeeling;
+export default Supported;
