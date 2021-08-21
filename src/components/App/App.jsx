@@ -3,6 +3,7 @@ import axios from 'axios';
 import './App.css';
 import HowFeeling from '../HowFeeling/HowFeeling';
 import UnderStanding from '../Understanding/Understanding';
+import Comments from '../Comments/Comments';
 import Review from '../Review/Review';
 import Supported from '../Supported/Supported';
 import { useEffect } from 'react';
@@ -33,6 +34,10 @@ function App() {
 
       <Route path="/supported" exact>
         <Supported />
+      </Route>
+
+      <Route path="/comments" exact>
+        <Comments />
       </Route>
 
       </Router> 

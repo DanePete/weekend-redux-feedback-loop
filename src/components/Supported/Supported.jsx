@@ -24,7 +24,7 @@ function Supported() {
       type: 'SUPPORTED',
       payload: supported
     });
-    history.push('/review');
+    history.push('/comments');
   }
 
   return (
@@ -35,7 +35,7 @@ function Supported() {
           onChange={handleSupported}
           value= {supported}
           type='number'
-          placeholder='Feeling?'
+          placeholder='Supported?'
         />
         
         <input type='submit' value='Submit' />

@@ -34,7 +34,7 @@ function UnderStanding() {
           onChange={handleUnderstanding}
           value= {understand}
           type='number'
-          placeholder='Feeling?'
+          placeholder='Understanding?'
         />
         
         <input type='submit' value='Submit' />
