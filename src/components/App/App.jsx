@@ -5,6 +5,7 @@ import HowFeeling from '../HowFeeling/HowFeeling';
 import UnderStanding from '../Understanding/Understanding';
 import Comments from '../Comments/Comments';
 import Review from '../Review/Review';
+import Admin from '../Admin/Admin';
 import Supported from '../Supported/Supported';
 import { useEffect } from 'react';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
@@ -38,6 +39,10 @@ function App() {
 
       <Route path="/comments" exact>
         <Comments />
+      </Route>
+
+      <Route path="/admin" exact>
+        <Admin />
       </Route>
 
       </Router> 

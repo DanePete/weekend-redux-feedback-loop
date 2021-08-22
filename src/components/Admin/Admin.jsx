@@ -8,15 +8,16 @@ function Admin() {
   let [response, setResponse] = useState([]);
 
   useEffect(() => {
-    fetchOrders();
+    fetchFeedback();
   }, [])
 
-  const fetchOrders = () => {
+  const fetchFeedback = () => {
     axios({
       method: 'GET',
-      url: '/api/order'
+      url: '/api/feedback'
     }).then(response => { 
       setResponse(response.data);
+      console.log('resonse data', response.data);
     }).catch(error => {
       console.log('Failed to GET:', error);
       alert('FAILED get request');
@@ -28,10 +29,10 @@ function Admin() {
       <table className="table table-striped">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Time Ordered Placed</th>
-            <th>Type</th>
-            <th>Cost</th>
+            <th>Feeling</th>
+            <th>Understanding</th>
+            <th>Support</th>
+            <th>Comments</th>
           </tr>
         </thead>
         <tbody>
@@ -39,16 +40,16 @@ function Admin() {
             {console.log('our order',order)}
             return (<tr>
               <td>
-                {order.customer_name}
+                {order.feeling}
               </td>
               <td>
-                {order.time}
+                {order.understanding}
               </td>
               <td>
-                {order.type}
+                {order.support}
               </td>
               <td>
-                {order.total}
+                {order.comments}
               </td>
             </tr>)
           })}

@@ -2,11 +2,14 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool');
 
+console.log('pool', pool);
+
 // Get Feedback
 router.get('/', (req, res) => {
-  let queryText = 'SELECT title, author FROM "books" ORDER BY "title";';
+  let queryText = 'SELECT * FROM "feedback"';
   pool.query(queryText).then(result => {
     // Sends back the results in an object
+    console.log('result rows', result.rows);
     res.send(result.rows);
   })
   .catch(error => {
