@@ -15,6 +15,9 @@ function HowFeeling() {
   }
 
   const addFeedback = (event) => {
+
+    console.log('event stuff', event);
+
     event.preventDefault();
     
     // Dispatch an action
@@ -32,12 +35,13 @@ function HowFeeling() {
       <form onSubmit={(event) => addFeedback(event)}>
         <input
           onChange={handleHowFeeling}
+          className="form-control"
           value= {howFeeling}
           type='number'
           placeholder='Feeling?'
         />
         
-        <input type='submit' value='Submit' />
+        <input className="btn btn-primary" type='submit' value='Next' />
       </form>
     </div>
   )

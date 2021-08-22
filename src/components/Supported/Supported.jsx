@@ -38,11 +38,12 @@ function Supported() {
         <input
           onChange={handleSupported}
           value= {supported}
+          className='form-control'
           type='number'
           placeholder='Supported?'
         />
         
-        <input type='submit' value='Submit' />
+        <input className="btn btn-primary" type='submit' value='Next' />
       </form>
     </div>
   )

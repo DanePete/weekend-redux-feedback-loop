@@ -38,8 +38,8 @@ import { combineReducers, createStore } from 'redux';
 //     return state;
 // }
 
-const global = (state = [], action) => {
-    return [...state, action.payload]
+const global = (state = {}, action) => {
+    return {...state, feedback: action.payload}
 }
 
 const store = createStore(

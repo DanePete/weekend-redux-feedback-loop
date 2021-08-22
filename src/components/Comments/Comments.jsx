@@ -6,7 +6,6 @@ import {useDispatch, useSelector} from 'react-redux';
 
 function Comments() {
 
-  const feedback = useSelector(store => store.feedBack);
   const history = useHistory();
   const dispatch = useDispatch();
 
@@ -36,11 +35,12 @@ function Comments() {
         <textarea
           onChange={handleComment}
           value= {comment}
+          className='form-control'
           type='textarea'
           placeholder='comment?'
         />
         
-        <input type='submit' value='Submit' />
+        <input className="btn btn-primary" type='submit' value='Next' />
       </form>
     </div>
   )

@@ -15,7 +15,7 @@ function UnderStanding() {
 
   const global = useSelector(store => store.global);
 
-  console.log('global', global);
+  console.log('global', global.feedback);
 
   const handleUnderstanding = (event) => {
     setUnderstanding(event.target.value);
@@ -37,11 +37,12 @@ function UnderStanding() {
         <input
           onChange={handleUnderstanding}
           value= {understand}
+          className='form-control'
           type='number'
           placeholder='Understanding?'
         />
         
-        <input type='submit' value='Submit' />
+        <input className="btn btn-primary" type='submit' value='Next' />
       </form>
     </div>
   )
