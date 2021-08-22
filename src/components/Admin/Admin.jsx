@@ -38,7 +38,7 @@ function Admin() {
 
   return (
     <>
-      <table className="table table-striped">
+      <table className="table table-striped table-dark">
         <thead>
           <tr>
             <th>Feeling</th>
