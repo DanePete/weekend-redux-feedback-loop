@@ -5,53 +5,18 @@ import { useState } from "react";
 import {useDispatch, useSelector} from 'react-redux';
 
 function Review() {
-
-  const feedback = useSelector(store => store.feedBack);
   const history = useHistory();
-  const dispatch = useDispatch();
-  let [productToAdd, setProductToAdd] = useState({ name: '', feeling: 0, understand: 0 });
 
   const global = useSelector(store => store.global);
   console.log('global', global);
 
-  const handleFeedBackNumChange = (event) => {
-    setProductToAdd({      
-        ...feedback[0],
-        understand: event.target.value,      
-    });
-    history.push('/customer-information');
-  }
-
-  const goToCustInformation = () => {
-    let isConfirmed = confirm("Are you sure this is how you feel?")
-
-    
-    if (isConfirmed) {
-      history.push('/customer-information');
-    }
-  }
-
-  const addFeedback = (event) => {
-    event.preventDefault();
-    dispatch({
-      type: 'ADD_FEEDBACK',
-      payload: productToAdd
-    });
-  }
-
   return (
     <div className="PizzaContainer">
-      <h1>Review</h1>
-      <form onSubmit={(event) => addFeedback(event)}>
-        <input
-          onChange={handleFeedBackNumChange}
-          value= {productToAdd.understand}
-          type='number'
-          placeholder='Feeling?'
-        />
-        
-        <input type='submit' value='Submit' />
-      </form>
+      <h1>Review Your Feedback</h1>
+      <h3>Feeling: {global.howfeeling}</h3>
+      <h3>Understanding: {global.understand}</h3>
+      <h3>Support: {global.supported}</h3>
+      <h3>Comments: {global.comment}</h3>
     </div>
   )
 }

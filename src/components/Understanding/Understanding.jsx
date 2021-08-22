@@ -13,9 +13,9 @@ function UnderStanding() {
 
   let [understand, setUnderstanding] = useState('');
 
-  const global = useSelector(store => store.global);
+  const global = useSelector(store => store.global.howfeeling);
 
-  console.log('global', global.feedback);
+  console.log('global', global);
 
   const handleUnderstanding = (event) => {
     setUnderstanding(event.target.value);
