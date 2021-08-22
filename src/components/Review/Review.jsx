@@ -9,7 +9,6 @@ function Review() {
   const history = useHistory();
 
   const global = useSelector(store => store.global);
-  console.log('global', global);
 
   const order = () => {
     axios({

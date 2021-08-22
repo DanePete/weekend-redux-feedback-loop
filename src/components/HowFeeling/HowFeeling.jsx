@@ -8,7 +8,6 @@ function HowFeeling() {
   const history = useHistory();
   const dispatch = useDispatch();
   const global = useSelector(store => store.global);
-  console.log('global', global);
   let [howFeeling, setHowFeeling] = useState(global.howfeeling);
 
   const handleHowFeeling = (event) => {
