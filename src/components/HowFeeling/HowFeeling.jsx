@@ -33,16 +33,18 @@ function HowFeeling() {
     <div className="PizzaContainer">
       <h1>How are you feeling today?</h1>
       <form onSubmit={(event) => addFeedback(event)}>
-        <input
-          onChange={handleHowFeeling}
-          className="form-control"
-          value= {howFeeling}
-          type='number'
-          placeholder='Feeling?'
-          required
-        />
-        
-        <input className="btn btn-primary" type='submit' value='Next' />
+
+        <div className="form-group mx-sm-3 mb-2">
+          <input
+            onChange={handleHowFeeling}
+            className="form-control"
+            value= {howFeeling}
+            type='number'
+            placeholder='Feeling?'
+            required
+          />
+          <input className="btn btn-primary" type='submit' value='Next' />
+        </div>
       </form>
     </div>
   )

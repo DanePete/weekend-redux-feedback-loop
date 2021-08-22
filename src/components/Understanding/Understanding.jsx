@@ -31,16 +31,17 @@ function UnderStanding() {
     <div className="PizzaContainer">
       <h1>How Well are you understanding the content?</h1>
       <form onSubmit={(event) => addFeedback(event)}>
+      <div className="form-group mx-sm-3 mb-2">
         <input
           onChange={handleUnderstanding}
           value= {understand}
-          className='form-control'
+          className="form-control"
           type='number'
           placeholder='Understanding?'
           required
         />
-        
         <input className="btn btn-primary" type='submit' value='Next' />
+      </div>
       </form>
     </div>
   )
