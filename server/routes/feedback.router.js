@@ -29,5 +29,20 @@ router.post('/',  (req, res) => {
     });
 });
 
+// DELETE on /api/survey
+router.delete('/:id', (req,res) => {
+  const statement = `DELETE FROM feedback WHERE id = $1`;
+  pool.query(statement, [req.params.id])
+      .then((result) => {
+          res.sendStatus(200);
+          console.log('DELETE /api/survey successful');
+          
+      })
+      .catch((error) => {
+          console.log('DELETE /api/survey Error:', error);
+          res.sendStatus(500);
+      });
+  }); 
+
 
 module.exports = router;

@@ -10,7 +10,7 @@ function Review() {
 
   const global = useSelector(store => store.global);
 
-  const order = () => {
+  const submitFeedback = () => {
     axios({
         method: 'POST',
         url: '/api/feedback',
@@ -33,7 +33,7 @@ function Review() {
       <h3>Understanding: {global.understand}</h3>
       <h3>Support: {global.supported}</h3>
       <h3>Comments: {global.comment}</h3>
-      <button className="btn btn-primary" onClick={order}>CHECKOUT</button>
+      <button className="btn btn-primary" onClick={submitFeedback}>Submit</button>
     </div>
   )
 }

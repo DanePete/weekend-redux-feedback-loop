@@ -24,6 +24,18 @@ function Admin() {
     });
   }
 
+  const deleteItem = (id) => {
+    console.log('hello', id);
+    axios.delete(`/api/feedback/${id}`)
+        .then( response => {
+            fetchFeedback();
+            console.log('got here');
+        })
+        .catch( error => {
+            console.log('Error on Delete', error);
+        });
+  };
+
   return (
     <>
       <table className="table table-striped">
@@ -33,23 +45,27 @@ function Admin() {
             <th>Understanding</th>
             <th>Support</th>
             <th>Comments</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
-          {response.map((order) => {
-            {console.log('our order',order)}
+          {response.map((item) => {
+            {console.log('our order',item)}
             return (<tr>
               <td>
-                {order.feeling}
+                {item.feeling}
               </td>
               <td>
-                {order.understanding}
+                {item.understanding}
               </td>
               <td>
-                {order.support}
+                {item.support}
               </td>
               <td>
-                {order.comments}
+                {item.comments}
+              </td>
+              <td>
+                <button className="btn btn-primary" onClick={() => deleteItem(item.id)}>Delete</button>
               </td>
             </tr>)
           })}
