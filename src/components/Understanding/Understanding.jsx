@@ -11,11 +11,8 @@ function UnderStanding() {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  let [understand, setUnderstanding] = useState('');
-
-  const global = useSelector(store => store.global.howfeeling);
-
-  console.log('global', global);
+  const global = useSelector(store => store.global);
+  let [understand, setUnderstanding] = useState(global.understand);
 
   const handleUnderstanding = (event) => {
     setUnderstanding(event.target.value);
@@ -40,6 +37,7 @@ function UnderStanding() {
           className='form-control'
           type='number'
           placeholder='Understanding?'
+          required
         />
         
         <input className="btn btn-primary" type='submit' value='Next' />

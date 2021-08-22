@@ -2,14 +2,10 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool');
 
-console.log('pool', pool);
-
 // Get Feedback
 router.get('/', (req, res) => {
   let queryText = 'SELECT * FROM "feedback"';
   pool.query(queryText).then(result => {
-    // Sends back the results in an object
-    console.log('result rows', result.rows);
     res.send(result.rows);
   })
   .catch(error => {
@@ -21,11 +17,9 @@ router.get('/', (req, res) => {
 // POST FEEDBACK
 router.post('/',  (req, res) => {
   let feedback = req.body;
-  console.log(`Adding feedback`, feedback);
-
-  let queryText = `INSERT INTO "books" ("author", "title")
-                   VALUES ($1, $2);`;
-  pool.query(queryText, [feedback.author, feedback.title])
+  let queryText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
+                   VALUES ($1, $2, $3, $4);`;
+  pool.query(queryText, [feedback.howfeeling, feedback.understand, feedback.supported, feedback.comment])
     .then(result => {
       res.sendStatus(201);
     })

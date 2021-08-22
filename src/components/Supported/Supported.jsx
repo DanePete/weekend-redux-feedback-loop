@@ -12,10 +12,8 @@ function Supported() {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  let [supported, setSupported] = useState('');
-
   const global = useSelector(store => store.global);
-  console.log('global', global);
+  let [supported, setSupported] = useState(global.supported);
 
 
   const handleSupported = (event) => {
@@ -41,6 +39,7 @@ function Supported() {
           className='form-control'
           type='number'
           placeholder='Supported?'
+          required
         />
         
         <input className="btn btn-primary" type='submit' value='Next' />

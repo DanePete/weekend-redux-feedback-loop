@@ -7,8 +7,9 @@ import {useDispatch, useSelector} from 'react-redux';
 function HowFeeling() {
   const history = useHistory();
   const dispatch = useDispatch();
-
-  let [howFeeling, setHowFeeling] = useState('');
+  const global = useSelector(store => store.global);
+  console.log('global', global);
+  let [howFeeling, setHowFeeling] = useState(global.howfeeling);
 
   const handleHowFeeling = (event) => {
     setHowFeeling(event.target.value);
@@ -39,6 +40,7 @@ function HowFeeling() {
           value= {howFeeling}
           type='number'
           placeholder='Feeling?'
+          required
         />
         
         <input className="btn btn-primary" type='submit' value='Next' />

@@ -8,10 +8,10 @@ function Comments() {
 
   const history = useHistory();
   const dispatch = useDispatch();
-
-  let [comment, setComment] = useState('');
-  
   const global = useSelector(store => store.global);
+  let [comment, setComment] = useState(global.comment);
+  
+
   console.log('global', global);
 
   const handleComment = (event) => {
@@ -38,6 +38,7 @@ function Comments() {
           className='form-control'
           type='textarea'
           placeholder='comment?'
+          required
         />
         
         <input className="btn btn-primary" type='submit' value='Next' />
