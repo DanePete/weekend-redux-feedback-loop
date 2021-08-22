@@ -20,7 +20,7 @@ function HowFeeling() {
     // Dispatch an action
     dispatch({
       type: 'HOW_FEELING',
-      payload: howFeeling
+      payload: {howfeeling: howFeeling}
     });
 
     history.push('/understanding');

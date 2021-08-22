@@ -11,6 +11,9 @@ function Review() {
   const dispatch = useDispatch();
   let [productToAdd, setProductToAdd] = useState({ name: '', feeling: 0, understand: 0 });
 
+  const global = useSelector(store => store.global);
+  console.log('global', global);
+
   const handleFeedBackNumChange = (event) => {
     setProductToAdd({      
         ...feedback[0],

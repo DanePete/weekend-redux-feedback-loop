@@ -13,6 +13,10 @@ function UnderStanding() {
 
   let [understand, setUnderstanding] = useState('');
 
+  const global = useSelector(store => store.global);
+
+  console.log('global', global);
+
   const handleUnderstanding = (event) => {
     setUnderstanding(event.target.value);
   }
@@ -21,7 +25,7 @@ function UnderStanding() {
     event.preventDefault();
     dispatch({
       type: 'UNDERSTANDING',
-      payload: understand
+      payload: {understand: understand}
     });
     history.push('/supported');
   }

@@ -14,6 +14,10 @@ function Supported() {
 
   let [supported, setSupported] = useState('');
 
+  const global = useSelector(store => store.global);
+  console.log('global', global);
+
+
   const handleSupported = (event) => {
     setSupported(event.target.value);
   }
@@ -22,7 +26,7 @@ function Supported() {
     event.preventDefault();
     dispatch({
       type: 'SUPPORTED',
-      payload: supported
+      payload: {supported: supported}
     });
     history.push('/comments');
   }

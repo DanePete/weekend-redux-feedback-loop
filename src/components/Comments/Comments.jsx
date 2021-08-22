@@ -9,43 +9,35 @@ function Comments() {
   const feedback = useSelector(store => store.feedBack);
   const history = useHistory();
   const dispatch = useDispatch();
-  let [productToAdd, setProductToAdd] = useState({ name: '', feeling: 0, understand: 0 });
 
-  const handleFeedBackNumChange = (event) => {
-    setProductToAdd({      
-        ...feedback[0],
-        understand: event.target.value,      
-    });
-  }
+  let [comment, setComment] = useState('');
+  
+  const global = useSelector(store => store.global);
+  console.log('global', global);
 
-  const goToCustInformation = () => {
-    let isConfirmed = confirm("Are you sure this is how you feel?")
-
-    
-    if (isConfirmed) {
-      history.push('/customer-information');
-    }
+  const handleComment = (event) => {
+    setComment(event.target.value);
   }
 
   const addFeedback = (event) => {
     event.preventDefault();
     dispatch({
-      type: 'ADD_FEEDBACK',
-      payload: productToAdd
+      type: 'COMMENT',
+      payload: {comment: comment}
     });
 
-    history.push('/supported');
+    history.push('/review');
   }
 
   return (
     <div className="PizzaContainer">
       <h1>Any comments you want to leave?</h1>
       <form onSubmit={(event) => addFeedback(event)}>
-        <input
-          onChange={handleFeedBackNumChange}
-          value= {productToAdd.understand}
+        <textarea
+          onChange={handleComment}
+          value= {comment}
           type='textarea'
-          placeholder='Feeling?'
+          placeholder='comment?'
         />
         
         <input type='submit' value='Submit' />
