@@ -15,6 +15,7 @@
   width: 50%;
   margin: 0 auto;
   background: #3f51b545;
+  padding: 15px;
 }
 
 .App-title {
@@ -65,16 +66,16 @@ body {
   right:-50%;
   top:0;
   z-index:-1;
-  animation-duration:8s;
+  animation-duration:14s;
 }
 
 .bg2 {
   animation-direction:alternate-reverse;
-  animation-duration:9s;
+  animation-duration:15s;
 }
 
 .bg3 {
-  animation-duration:10s;
+  animation-duration:16s;
 }
 
 .content {
