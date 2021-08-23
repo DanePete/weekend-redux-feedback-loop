@@ -7,7 +7,7 @@ import {useDispatch, useSelector} from 'react-redux';
 
 function Review() {
   const history = useHistory();
-
+  const dispatch = useDispatch();
   const global = useSelector(store => store.global);
 
   const submitFeedback = () => {
@@ -16,10 +16,10 @@ function Review() {
         url: '/api/feedback',
         data: { ...global}
     }).then(response => {
+        dispatch({
+            type: 'CLEAR'
+        });
         history.push('/');
-        // dispatch({
-        //     type: 'CLEAR'
-        // });
     }).catch(error => {
         console.log('Failed to POST: ', error);
         alert('Failed to POST. See console for details.');
@@ -33,6 +33,7 @@ function Review() {
       <h3>Understanding: {global.understand}</h3>
       <h3>Support: {global.supported}</h3>
       <h3>Comments: {global.comment}</h3>
+      <button className="btn btn-primary" onClick={() => history.goBack()}>Back</button>
       <button className="btn btn-primary" onClick={submitFeedback}>Submit</button>
     </div>
   )

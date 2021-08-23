@@ -12,6 +12,10 @@ import { combineReducers, createStore } from 'redux';
  */
 const global = (state = {}, action) => {
     console.log('action',action.payload);
+    console.log('action type', action.type);
+    if(action.type === 'CLEAR') {
+      return {}
+    }
     return {...state, ...action.payload}
 }
 
