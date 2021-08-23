@@ -36,7 +36,7 @@ function Supported() {
 
   return (
     <div className="PizzaContainer">
-      <h1>How well are you being supported</h1>
+      <h1>How well are you being supported?</h1>
       <form onSubmit={(event) => addFeedback(event)}>
       <div className="circle-container">
         <CircularInput value={stepValue(supported)} onChange={v => setSupported(stepValue(v))} >
