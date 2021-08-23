@@ -6,6 +6,7 @@ import Comments from '../Comments/Comments';
 import Review from '../Review/Review';
 import Admin from '../Admin/Admin';
 import Footer from '../Footer/Footer';
+import Success from '../Success/Success';
 import Supported from '../Supported/Supported';
 import { HashRouter as Router, Route, Link, useHistory } from 'react-router-dom';
 
@@ -56,7 +57,11 @@ function App() {
       </Route>
 
       <Route path="/footer" exact>
-      <Footer />
+        <Footer />
+      </Route>
+
+      <Route path="/success" exact>
+        <Success />
       </Route>
 
       </Router> 

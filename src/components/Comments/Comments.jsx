@@ -10,9 +10,6 @@ function Comments() {
   const dispatch = useDispatch();
   const global = useSelector(store => store.global);
   let [comment, setComment] = useState(global.comment);
-  
-
-  console.log('global', global);
 
   const handleComment = (event) => {
     setComment(event.target.value);

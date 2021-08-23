@@ -9,7 +9,6 @@ function UnderStanding() {
   const history = useHistory();
   const dispatch = useDispatch();
   const global = useSelector(store => store.global);
-  console.log('global', global);
   const [understand, setUnderstanding] = useState(global.understand || 0.0);
   const stepValue = v => Math.round(v * 10) / 10;
 

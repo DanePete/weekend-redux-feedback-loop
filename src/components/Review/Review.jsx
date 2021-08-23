@@ -19,7 +19,7 @@ function Review() {
         dispatch({
             type: 'CLEAR'
         });
-        history.push('/');
+        history.push('/success');
     }).catch(error => {
         console.log('Failed to POST: ', error);
         alert('Failed to POST. See console for details.');

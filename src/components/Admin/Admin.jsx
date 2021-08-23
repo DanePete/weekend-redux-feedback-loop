@@ -24,11 +24,9 @@ function Admin() {
   }
 
   const deleteItem = (id) => {
-    console.log('hello', id);
     axios.delete(`/api/feedback/${id}`)
         .then( response => {
             fetchFeedback();
-            console.log('got here');
         })
         .catch( error => {
             console.log('Error on Delete', error);
@@ -49,7 +47,6 @@ function Admin() {
         </thead>
         <tbody>
           {response.map((item) => {
-            {console.log('our order',item)}
             return (<tr>
               <td>
                 {item.feeling}
