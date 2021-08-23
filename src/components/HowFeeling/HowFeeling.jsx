@@ -53,14 +53,6 @@ function HowFeeling() {
               </text>
             </CircularInput>
           </div>
-          <input
-            onChange={handleHowFeeling}
-            className="form-control"
-            value= {howFeeling}
-            type='float'
-            placeholder='Feeling?'
-            required
-          />
           <input className="btn btn-primary" type='submit' value='Next' />
         </div>
       </form>

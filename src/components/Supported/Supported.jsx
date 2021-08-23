@@ -49,14 +49,6 @@ function Supported() {
             </text>
           </CircularInput>
       </div>
-        <input
-          onChange={handleSupported}
-          value= {supported}
-          className='form-control'
-          type='number'
-          placeholder='Supported?'
-          required
-        />
         <button className="btn btn-primary" onClick={() => history.goBack()}>Back</button>
         <input className="btn btn-primary" type='submit' value='Next' />
       </form>
