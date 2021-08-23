@@ -1,10 +1,9 @@
 
-import { useSelector } from 'react-redux';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-
+import { useHistory } from 'react-router-dom';
 function Admin() {
-
+  const history = useHistory();
   let [response, setResponse] = useState([]);
 
   useEffect(() => {
@@ -38,6 +37,7 @@ function Admin() {
 
   return (
     <>
+    <button className="btn btn-primary" onClick={() => history.push('/')}>Back To Survey</button>
       <table className="table table-striped table-dark">
         <thead>
           <tr>
