@@ -14,10 +14,18 @@ function Supported() {
   let [supported, setSupported] = useState(global.supported || 0.0);
   const stepValue = v => Math.round(v * 10) / 10;
 
+    /**
+   * Handle Supported
+   * sets our local dome state on event change
+   */
   const handleSupported = (event) => {
     setSupported(event.target.value);
   }
 
+    /**
+   * Add Feedback
+   * Handles our form reload prevention as well as dispatching our payload
+   */
   const addFeedback = (event) => {
     event.preventDefault();
     dispatch({

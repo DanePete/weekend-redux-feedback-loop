@@ -15,8 +15,12 @@ function App() {
   return (
     <div className='App container-fluid'>
       <header className='App-header'>
-        <h1 className='App-title'>Feedback!</h1>
-        <h4>Don't forget it!</h4>
+        <h1 class="ribbon">
+          <strong class="ribbon-content">
+            FEEDBACK <br />
+            <h4>Don't forget it!</h4>
+            </strong>
+        </h1>
       </header>
       <div class="bg"></div>
       <div class="bg bg2"></div>
