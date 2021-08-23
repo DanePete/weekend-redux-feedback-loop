@@ -11,6 +11,8 @@ function HowFeeling() {
   const dispatch = useDispatch();
   const global = useSelector(store => store.global);
 
+  console.log('global', global);
+
   const [howFeeling, setHowFeeling] = useState(global.howfeeling || 0.0);
   const stepValue = v => Math.round(v * 10) / 10;
 

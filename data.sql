@@ -16,3 +16,8 @@ CREATE TABLE "feedback" (
 -- Sample feedback item
 INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
 VALUES (4, 4, 5, 'Doing Great!');
+
+-- Table Alters
+ALTER TABLE "public"."feedback" ALTER COLUMN "support" TYPE float;
+ALTER TABLE "public"."feedback" ALTER COLUMN "understanding" TYPE float;
+ALTER TABLE "public"."feedback" ALTER COLUMN "feeling" TYPE float;
