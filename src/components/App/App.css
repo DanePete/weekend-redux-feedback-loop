@@ -63,7 +63,7 @@ body {
 .admin-btn {
   width: 150px;
   height: 50px;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   right: 0;
 }
@@ -155,6 +155,16 @@ body {
 
 h1 {
   font-family:monospace;
+}
+
+@media only screen and (max-width: 600px) {
+  .PizzaContainer {
+    width: 100%;
+    margin: 0 auto;
+    background: rgba(63,81,181,.27058823529411763);
+    padding: 5px;
+    box-shadow: 0 7px 29px 0 rgb(8 8 51 / 25%);
+  } 
 }
 
 @keyframes slide {
