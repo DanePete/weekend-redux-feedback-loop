@@ -37,7 +37,6 @@ function Admin() {
 
   return (
     <>
-    <button className="btn btn-primary" onClick={() => history.push('/')}>Back To Survey</button>
       <table className="table table-striped table-dark">
         <thead>
           <tr>
@@ -71,6 +70,7 @@ function Admin() {
           })}
         </tbody>
       </table>
+      <button className="admin-btn btn btn-primary" onClick={() => history.push('/')}>Back To Survey</button>
     </>
   )
 }
