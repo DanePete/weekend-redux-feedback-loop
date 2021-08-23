@@ -43,7 +43,7 @@ function UnderStanding() {
           <CircularInput value={stepValue(understand)} onChange={v => setUnderstanding(stepValue(v))} >
             <CircularTrack />
             <CircularProgress />
-            <CircularThumb />
+            <CircularThumb fill="#e91e63" />
             <text x={100} y={100} fill="rgb(255, 255, 255)" textAnchor="middle" dy="0.3em" fontWeight="bold">
             {Math.round(stepValue(understand) * 100)}%
             </text>

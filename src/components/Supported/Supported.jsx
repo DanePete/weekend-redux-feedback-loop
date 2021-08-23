@@ -43,7 +43,7 @@ function Supported() {
         <CircularInput value={stepValue(supported)} onChange={v => setSupported(stepValue(v))} >
             <CircularTrack />
             <CircularProgress />
-            <CircularThumb />
+            <CircularThumb fill="#e91e63" />
             <text x={100} y={100} textAnchor="middle" fill="rgb(255, 255, 255)" dy="0.3em" fontWeight="bold">
             {Math.round(stepValue(supported) * 100)}%
             </text>
